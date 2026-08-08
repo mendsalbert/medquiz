@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Simplified partograph cervical dilatation chart">
+  <rect width="640" height="360" fill="#faf9f6"/>
+  <text x="320" y="36" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="700" fill="#0b1f3a">Partograph — cervical dilatation</text>
+  <line x1="80" y1="300" x2="560" y2="300" stroke="#0b1f3a" stroke-width="2"/>
+  <line x1="80" y1="60" x2="80" y2="300" stroke="#0b1f3a" stroke-width="2"/>
+  <line x1="80" y1="300" x2="320" y2="180" stroke="#6fbf5f" stroke-width="3"/>
+  <line x1="320" y1="180" x2="480" y2="90" stroke="#9b1c1c" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="320" cy="180" r="6" fill="#0d6e6e"/>
+  <text x="330" y="170" font-family="system-ui" font-size="12" fill="#0d6e6e">Alert line crossed</text>
+  <text x="70" y="320" font-family="system-ui" font-size="12" fill="#4a5568">Time →</text>
+  <text x="20" y="190" font-family="system-ui" font-size="12" fill="#4a5568" transform="rotate(-90 20 190)">cm</text>
+</svg>

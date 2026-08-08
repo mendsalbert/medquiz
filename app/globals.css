@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f3faf8;
+  --foreground: #0b1f3a;
+  --sidebar-bg: #ffffff;
+  --border: #d7e8e5;
+  --accent: #0b1f3a;
+  --brand: #0b1f3a;
+  --brand-hover: #163258;
+  --ink: #0b1f3a;
+  --ink-hover: #163258;
+  --teal: #0e7490;
+  --teal-soft: #dff5f2;
+  --forest: #062a28;
+  --leaf: #2ec4b6;
+  --leaf-bright: #5ed9cd;
+  --leaf-soft: #e6faf7;
+  --muted: #3f5b66;
+  --canvas: #f3faf8;
+  --surface: #ffffff;
+  --surface-soft: #eef8f6;
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #f2f2f2;
+  --sidebar-bg: #111111;
+  --border: #2a2a2a;
+  --accent: #5ed9cd;
+  --brand: #111111;
+  --brand-hover: #1c1c1c;
+  --ink: #f2f2f2;
+  --ink-hover: #d4d4d4;
+  --teal: #5ed9cd;
+  --teal-soft: #161616;
+  --forest: #050505;
+  --leaf: #2ec4b6;
+  --leaf-bright: #7ee0d5;
+  --leaf-soft: #141414;
+  --muted: #a3a3a3;
+  --canvas: #050505;
+  --surface: #111111;
+  --surface-soft: #1a1a1a;
+  color-scheme: dark;
+}
+
+/* Soft aqua atmosphere shared across marketing and product surfaces */
+.landing-theme,
+.brand-surface {
+  color: var(--foreground);
+}
+
+.landing-atmosphere {
+  background-color: var(--canvas);
+  background-image:
+    radial-gradient(85% 65% at 0% 0%, rgba(14, 116, 144, 0.1), transparent 55%),
+    radial-gradient(70% 55% at 100% 10%, rgba(46, 196, 182, 0.16), transparent 50%),
+    radial-gradient(55% 45% at 70% 100%, rgba(14, 116, 144, 0.07), transparent 55%);
+}
+
+.dark .landing-atmosphere {
+  background-image:
+    radial-gradient(80% 55% at 0% 0%, rgba(255, 255, 255, 0.04), transparent 55%),
+    radial-gradient(70% 50% at 100% 0%, rgba(46, 196, 182, 0.06), transparent 50%),
+    radial-gradient(55% 40% at 50% 100%, rgba(255, 255, 255, 0.03), transparent 55%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-forest: var(--forest);
+  --color-leaf: var(--leaf);
+  --color-leaf-bright: var(--leaf-bright);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-muted: var(--muted);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-sans), ui-rounded, "SF Pro Rounded",
+    system-ui, sans-serif;
+}
+
+.afri-dark {
+  background-color: #062a28;
+  background-image:
+    radial-gradient(120% 90% at 12% -10%, rgba(46, 196, 182, 0.16), transparent 55%),
+    radial-gradient(90% 80% at 100% 15%, rgba(14, 116, 144, 0.22), transparent 60%),
+    linear-gradient(160deg, #0a3532 0%, #062a28 55%, #041c1a 100%);
+}
+
+.afri-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 28px),
+    radial-gradient(circle, rgba(94, 217, 205, 0.14) 0 1.4px, transparent 1.6px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+  background-position: 0 0, 0 0, 20px 20px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #b8d4d0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7aaba4;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease forwards;
+}
