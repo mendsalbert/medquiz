@@ -33,10 +33,18 @@ export const STUDY_LEVELS: { id: StudyLevel; label: string; hint: string }[] = [
 
 export const FOCUS_SPECIALTIES = [
   "Obstetrics & Gynaecology",
-  "Infectious Disease",
   "Paediatrics",
-  "Dermatology",
+  "General Surgery",
   "Pathology",
+  "Neurology",
+  "Infectious Disease",
+  "Psychiatry",
+  "Cardiology",
+  "Endocrinology",
+  "Gastroenterology",
+  "Internal Medicine",
+  "Dermatology",
+  "Emergency Medicine",
   "General / mixed",
 ] as const;
 

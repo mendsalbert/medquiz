@@ -24,7 +24,7 @@ export default function DashboardQuizzesPage() {
           Specialty quizzes
         </h1>
         <p className="mt-3 text-base leading-relaxed text-muted">
-          MCQs from the AfriMedEval / LLMAJ bank, including image-based clinical cases.
+          MCQs from AfriMed-QA v2, plus image-based AfriMedEval clinical cases.
           Session length is controlled in Settings.
         </p>
       </div>

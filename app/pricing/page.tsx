@@ -8,7 +8,7 @@ const PLANS = [
     name: "Free",
     price: "GH₵0",
     period: "forever",
-    description: "Try MedQuiz with AfriMedEval specialty tracks.",
+    description: "Try MedQuiz with AfriMed-QA specialty tracks.",
     cta: "Start practicing",
     href: "/signup",
     featured: false,

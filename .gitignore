@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# large Hugging Face parquet cache (regenerate with npm run quiz-bank:afrimedqa)
+/data/afrimedqa_v2.parquet
+
 # debug
 npm-debug.log*
 yarn-debug.log*

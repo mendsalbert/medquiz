@@ -112,7 +112,7 @@ export default function DashboardPage() {
               ) : (
                 <>
                   Track readiness, revisit past sessions, and jump into specialty quizzes
-                  sourced from AfriMedEval.
+                  sourced from AfriMed-QA.
                 </>
               )}
             </p>

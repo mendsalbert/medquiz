@@ -7,7 +7,7 @@ import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const LINKS = [
-  { href: "/#tracks", label: "Tracks" },
+  { href: "/quizzes", label: "Tracks" },
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#who", label: "Who it's for" },
   { href: "/#faq", label: "FAQ" },
