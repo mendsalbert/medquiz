@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import ExpandableImage from "@/components/ExpandableImage";
 import Logo from "@/components/Logo";
+import QuestionCommentForm from "@/components/QuestionCommentForm";
 import SiteNav from "@/components/SiteNav";
 import ThemeToggle from "@/components/ThemeToggle";
 import { trackIcon } from "@/lib/track-icons";
@@ -376,6 +377,14 @@ export default function QuizPlayer({ quiz }: { quiz: Quiz }) {
                       <p className="mt-3 rounded-2xl bg-teal-soft/60 p-4 text-sm leading-relaxed text-muted">
                         {q.explanation}
                       </p>
+                      <QuestionCommentForm
+                        compact
+                        questionId={q.id}
+                        quizId={quiz.id}
+                        quizTitle={quiz.title}
+                        specialty={quiz.specialty}
+                        prompt={q.prompt}
+                      />
                     </div>
                   </div>
                 </article>
@@ -541,18 +550,27 @@ export default function QuizPlayer({ quiz }: { quiz: Quiz }) {
           </div>
 
           {feedbackMode === "immediate" && isRevealed && (
-            <div
-              className={`mt-6 rounded-[1.25rem] p-5 text-sm leading-relaxed ${
-                selected === question.correctIndex
-                  ? "bg-[#e8f5e8] text-[#2f5f2f] dark:bg-[#16301a] dark:text-[#bbf7d0]"
-                  : "bg-surface-soft text-muted"
-              }`}
-            >
-              <p className="font-bold text-ink">
-                {selected === question.correctIndex ? "Correct" : "Not quite"}
-              </p>
-              <p className="mt-1">{question.explanation}</p>
-            </div>
+            <>
+              <div
+                className={`mt-6 rounded-[1.25rem] p-5 text-sm leading-relaxed ${
+                  selected === question.correctIndex
+                    ? "bg-[#e8f5e8] text-[#2f5f2f] dark:bg-[#16301a] dark:text-[#bbf7d0]"
+                    : "bg-surface-soft text-muted"
+                }`}
+              >
+                <p className="font-bold text-ink">
+                  {selected === question.correctIndex ? "Correct" : "Not quite"}
+                </p>
+                <p className="mt-1">{question.explanation}</p>
+              </div>
+              <QuestionCommentForm
+                questionId={question.id}
+                quizId={quiz.id}
+                quizTitle={quiz.title}
+                specialty={quiz.specialty}
+                prompt={question.prompt}
+              />
+            </>
           )}
         </article>
 

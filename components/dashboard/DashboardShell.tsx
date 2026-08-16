@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   LogOut,
   Menu,
+  MessageSquareText,
   Settings,
   History,
   X,
@@ -27,6 +28,7 @@ const NAV = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard, exact: true },
   { href: "/dashboard/quizzes", label: "Quizzes", icon: BookOpen },
   { href: "/dashboard/history", label: "History", icon: History },
+  { href: "/dashboard/comments", label: "Comments", icon: MessageSquareText },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
