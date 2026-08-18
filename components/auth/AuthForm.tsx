@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
-import { isOnboardingComplete, loadProfile, updateProfile } from "@/lib/user-profile";
+import { loginWithCredentials, signupWithCredentials } from "@/lib/auth";
+import { COUNTRIES } from "@/lib/user-profile";
 
 type Mode = "login" | "signup";
 
@@ -21,35 +22,32 @@ export default function AuthForm({
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError("");
     setSubmitting(true);
 
     const data = new FormData(e.currentTarget);
     const email = String(data.get("email") ?? "").trim();
+    const password = String(data.get("password") ?? "");
     const name = String(data.get("name") ?? "").trim();
+    const country = String(data.get("country") ?? "").trim();
 
-    if (mode === "signup") {
-      updateProfile({
-        email,
-        fullName: name,
-        preferredName: name.split(/\s+/)[0] ?? name,
-        onboardingComplete: false,
-      });
-      window.setTimeout(() => {
-        router.push(nextPath ?? "/onboarding");
-      }, 350);
+    const result =
+      mode === "signup"
+        ? signupWithCredentials({ name, email, password, country })
+        : loginWithCredentials(email, password);
+
+    if (!result.ok) {
+      setError(result.error);
+      setSubmitting(false);
       return;
     }
 
-    updateProfile({ email });
-    const profile = loadProfile();
-    const destination =
-      nextPath ??
-      (isOnboardingComplete(profile) ? "/dashboard" : "/onboarding");
     window.setTimeout(() => {
-      router.push(destination);
+      router.push(nextPath ?? result.destination);
     }, 350);
   }
 
@@ -58,17 +56,38 @@ export default function AuthForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {!isLogin && (
-        <label className="block">
-          <span className="text-sm font-bold text-ink">Full name</span>
-          <input
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            placeholder="Ama Mensah"
-            className={fieldClass}
-          />
-        </label>
+        <>
+          <label className="block">
+            <span className="text-sm font-bold text-ink">Full name</span>
+            <input
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              placeholder="Ama Mensah"
+              className={fieldClass}
+            />
+          </label>
+          <label className="block">
+            <span className="text-sm font-bold text-ink">Country</span>
+            <select
+              name="country"
+              required
+              defaultValue=""
+              autoComplete="country-name"
+              className={fieldClass}
+            >
+              <option value="" disabled>
+                Select country
+              </option>
+              {COUNTRIES.map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </label>
+        </>
       )}
 
       <label className="block">
@@ -112,6 +131,10 @@ export default function AuthForm({
           </button>
         </div>
       </label>
+
+      {error ? (
+        <p className="text-sm font-semibold text-[#9b1c1c]">{error}</p>
+      ) : null}
 
       <button
         type="submit"

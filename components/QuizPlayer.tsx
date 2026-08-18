@@ -18,7 +18,7 @@ import QuestionCommentForm from "@/components/QuestionCommentForm";
 import SiteNav from "@/components/SiteNav";
 import ThemeToggle from "@/components/ThemeToggle";
 import { trackIcon } from "@/lib/track-icons";
-import type { Question, Quiz } from "@/lib/quizzes";
+import { formatOption, type Question, type Quiz } from "@/lib/quizzes";
 import {
   loadSettings,
   saveAttempt,
@@ -363,14 +363,14 @@ export default function QuizPlayer({ quiz }: { quiz: Quiz }) {
                       <p className="mt-3 text-sm text-muted">
                         Your answer:{" "}
                         <span className="font-semibold text-ink">
-                          {chosen === null ? "Skipped" : q.options[chosen]}
+                          {chosen === null ? "Skipped" : formatOption(q.options[chosen])}
                         </span>
                       </p>
                       {!correct && (
                         <p className="mt-1 text-sm text-muted">
                           Correct:{" "}
                           <span className="font-semibold text-teal">
-                            {q.options[q.correctIndex]}
+                            {formatOption(q.options[q.correctIndex])}
                           </span>
                         </p>
                       )}
@@ -535,7 +535,7 @@ export default function QuizPlayer({ quiz }: { quiz: Quiz }) {
                     {letter}
                   </span>
                   <span className="min-w-0 flex-1 pt-1 text-base font-semibold leading-relaxed text-ink">
-                    {option}
+                    {formatOption(option)}
                   </span>
                   {showFeedback && isCorrect ? (
                     <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#4f9f42]" />

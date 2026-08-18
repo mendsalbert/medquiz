@@ -55,7 +55,7 @@ export default function SignupPage() {
           </div>
 
           <p className="text-sm text-white/45">
-            Demo mode. Creating an account continues to a short profile setup.
+            New accounts stay on this device. Testers can also use the logins on the Log in page.
           </p>
         </div>
       </aside>

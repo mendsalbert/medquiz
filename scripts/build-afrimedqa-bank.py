@@ -135,6 +135,12 @@ def clean_text(value) -> str:
     return re.sub(r"\s+", " ", text)
 
 
+def capitalize_first(text: str) -> str:
+    if not text:
+        return text
+    return text[0].upper() + text[1:]
+
+
 def slugify(label: str) -> str:
     slug = label.lower().replace("&", "and")
     slug = re.sub(r"[^a-z0-9]+", "-", slug)
@@ -154,7 +160,7 @@ def convert_row(row) -> dict | None:
         if not text or text.upper() == "N/A":
             continue
         key_to_index[key] = len(options)
-        options.append(text)
+        options.append(capitalize_first(text))
 
     if len(options) < 2 or answer not in key_to_index:
         return None

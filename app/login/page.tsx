@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Check } from "lucide-react";
 import AuthForm from "@/components/auth/AuthForm";
+import TestLogins from "@/components/auth/TestLogins";
 import Logo from "@/components/Logo";
 
 const POINTS = [
@@ -55,7 +56,7 @@ export default function LoginPage() {
           </div>
 
           <p className="text-sm text-white/45">
-            Demo mode. Any email and password continues to the workspace.
+            Test logins are on the form. Password for all three: MedQuiz123
           </p>
         </div>
       </aside>
@@ -88,6 +89,7 @@ export default function LoginPage() {
 
             <div className="mt-8">
               <AuthForm mode="login" />
+              <TestLogins />
             </div>
           </div>
         </div>
