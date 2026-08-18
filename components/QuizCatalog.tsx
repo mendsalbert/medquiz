@@ -136,7 +136,7 @@ export default function QuizCatalog({
                 <p className="mt-4 text-lg leading-relaxed text-muted">
                   {catalog.length} specialty tracks across {STUDY_AREAS.length}{" "}
                   clinical areas, with {stats.totalQuestions.toLocaleString()}{" "}
-                  AfriMed-QA questions and image-based cases.
+                  AfriMed-QA questions.
                 </p>
               </div>
               <Link
@@ -288,7 +288,6 @@ export default function QuizCatalog({
                 [
                   ["all", "All"],
                   ["mcq", "MCQ"],
-                  ["clinical-images", "Images"],
                 ] as const
               ).map(([value, label]) => (
                 <FilterChip
@@ -322,9 +321,6 @@ export default function QuizCatalog({
             <div className="flex flex-wrap gap-2 text-xs font-bold text-teal">
               <span className="rounded-full bg-teal-soft px-3 py-1">
                 {stats.mcqTracks} MCQ banks
-              </span>
-              <span className="rounded-full bg-teal-soft px-3 py-1">
-                {stats.imageTracks} image tracks
               </span>
             </div>
           </div>

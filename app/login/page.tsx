@@ -5,7 +5,7 @@ import AuthForm from "@/components/auth/AuthForm";
 import Logo from "@/components/Logo";
 
 const POINTS = [
-  "AfriMed-QA specialty tracks with clinical images",
+  "AfriMed-QA specialty tracks",
   "Set your own session length in Settings",
   "Track readiness and past quiz scores",
 ];

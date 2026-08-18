@@ -7,7 +7,7 @@ import Logo from "@/components/Logo";
 const POINTS = [
   "Create once, then open the practice workspace",
   "Choose session length and feedback style",
-  "Image questions with clinical diagrams",
+  "AfriMed-QA specialty tracks",
 ];
 
 export default function SignupPage() {

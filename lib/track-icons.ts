@@ -29,11 +29,6 @@ export const TRACK_ICONS: Record<string, LucideIcon> = {
   "afrimedqa-dermatology": Scan,
   "afrimedqa-orthopaedic-surgery": Bone,
   "afrimedqa-emergency-medicine": Syringe,
-  "obgyn-afrimed-images": HeartPulse,
-  "infectious-disease-images": Microscope,
-  "paediatrics-images": Baby,
-  "dermatology-images": Scan,
-  "pathology-images": FlaskConical,
 };
 
 export function trackIcon(quizId: string): LucideIcon {

@@ -177,7 +177,7 @@ export default function LandingPage() {
             <ul className="mt-8 space-y-4">
               {[
                 "Log in or sign up, then open your practice dashboard",
-                "Set session length in Settings. Many items include clinical images",
+                "Set session length in Settings",
                 "See feedback after each item, or submit and review all at once",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-3 text-base font-semibold text-ink">
